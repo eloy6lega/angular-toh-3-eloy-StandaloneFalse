@@ -1,0 +1,23 @@
+<h2>{{titulo}}</h2>
+<br><hr><br>
+<h2>DAW Clientes</h2>
+<ul class="clientes">
+    <li *ngFor="let cliente of clientes">
+        <button [class.selected]="cliente === selectedCliente" type="button" (click)="onSelect(cliente)">
+            <span class="badge"> {{cliente.nombre}} </span>
+            <span class="name"> - </span>
+            <span class="name"> {{cliente.ciudad}} </span>
+            <span class="name"> - </span>
+            <span class="name"> {{cliente.facturacion}} </span>
+        </button>
+    </li>
+</ul>
+
+<div *ngIf="selectedCliente">
+    <h2> Detalles de: {{selectedCliente.nombre | uppercase}} </h2>
+    <div>
+        <h2>Nombre: {{selectedCliente.nombre}}</h2>
+        <h3>Ciudad: {{selectedCliente.ciudad}}</h3>
+        <h3>Facturación: {{selectedCliente.facturacion}}</h3>
+    </div>
+</div>
